@@ -1,18 +1,242 @@
 <!DOCTYPE html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
->
-  <th:block th:fragment="content">
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>卫风科技</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background-color: #f8f9fa;
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #007bff;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8b2ZmaWNlfHx8fHx8MTY4NTk3Njk5Mg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+    }
+    .btn-outline:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+    .features {
+      padding: 4rem 0;
+      background-color: #f1f3f5;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .feature {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .about, .contact {
+      padding: 4rem 0;
+    }
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ddd;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a href="#" aria-label="Acme Inc 首页">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+        <rect x="9" y="9" width="6" height="6"></rect>
+        <line x1="9" y1="1" x2="9" y2="4"></line>
+        <line x1="15" y1="1" x2="15" y2="4"></line>
+        <line x1="9" y1="20" x2="9" y2="23"></line>
+        <line x1="15" y1="20" x2="15" y2="23"></line>
+        <line x1="20" y1="9" x2="23" y2="9"></line>
+        <line x1="20" y1="14" x2="23" y2="14"></line>
+        <line x1="1" y1="9" x2="4" y2="9"></line>
+        <line x1="1" y1="14" x2="4" y2="14"></line>
+      </svg>
+    </a>
     <ul>
-      <li th:each="post : ${posts.items}">
-        <a
-          th:href="@{${post.status.permalink}}"
-          th:text="${post.spec.title}"
-        ></a>
-      </li>
+      <li><a href="#">首页</a></li>
+      <li><a href="#about">关于我们</a></li>
+      <li><a href="#features">服务</a></li>
+      <li><a href="#contact">联系我们</a></li>
     </ul>
-    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
-    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
-  </th:block>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>欢迎来到卫风科技</h1>
+      <p>我们是行业领先的创新解决方案提供商，致力于为您的业务带来卓越价值。</p>
+      <a href="#about" class="btn">了解更多</a>
+      <a href="#contact" class="btn btn-outline">联系我们</a>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem;">我们的服务</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>创新技术</h3>
+          <p>我们不断推动技术边界，为您提供最前沿的解决方案。无论是人工智能、大数据分析还是物联网技术，我们都能为您量身定制最适合的方案。</p>
+        </div>
+        <div class="feature">
+          <h3>专业团队</h3>
+          <p>我们的专家团队拥有丰富的行业经验，随时为您提供支持。从项目规划到实施，再到后续维护，我们全程陪伴，确保您的业务顺利运转。</p>
+        </div>
+        <div class="feature">
+          <h3>客户至上</h3>
+          <p>我们始终将客户需求放在首位，提供个性化的服务体验。我们深入了解每个客户的独特需求，提供量身定制的解决方案，助力您的业务腾飞。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>关于我们</h2>
+      <p>Acme公司成立于2005年，是一家致力于为各行各业提供创新解决方案的科技公司。我们的使命是通过先进技术和卓越服务，帮助客户实现业务增长和数字化转型。在过去的18年里，我们已经成功为超过500家企业提供了服务，涵盖金融、制造、零售等多个领域。</p>
+      <p>我们的核心价值观是创新、诚信和合作。我们相信，只有不断创新才能在快速变化的市场中保持竞争力；只有保持诚信才能赢得客户的长期信任；只有通过紧密合作，我们才能与客户一同成长，实现共赢。</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>联系我们</h2>
+      <p>我们随时欢迎您的咨询，请通过以下方式与我们取得联系。无论您有任何问题或需求，我们的团队都将竭诚为您服务。</p>
+      <form class="contact-form">
+        <input type="email" placeholder="您的邮箱" required>
+        <button type="submit">订阅我们的新闻</button>
+      </form>
+      <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          contact@acme.com
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          +86 123 4567 8901
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          北京市朝阳区
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2023 Acme Inc. 保留所有权利。</p>
+    <nav>
+      <a href="#">使用条款</a> | <a href="#">隐私政策</a>
+    </nav>
+  </div>
+</footer>
+</body>
 </html>
