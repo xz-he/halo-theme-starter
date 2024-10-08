@@ -1,242 +1,492 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>卫风科技</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    header {
-      background-color: #f8f9fa;
-      padding: 1rem 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #007bff;
-    }
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8b2ZmaWNlfHx8fHx8MTY4NTk3Njk5Mg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      padding: 100px 0;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    .btn:hover {
-      background-color: #0056b3;
-    }
-    .btn-outline {
-      background-color: transparent;
-      border: 2px solid white;
-    }
-    .btn-outline:hover {
-      background-color: rgba(255,255,255,0.1);
-    }
-    .features {
-      padding: 4rem 0;
-      background-color: #f1f3f5;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .feature {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .about, .contact {
-      padding: 4rem 0;
-    }
-    .contact-form {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 2rem 0;
-      text-align: center;
-    }
-    footer a {
-      color: #ddd;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卫风科技 - 智能教育与陪伴的引领者</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --light-text-color: #6c757d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8b2ZmaWNlfHx8fHx8MTY4NTk3Njk5Mg&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .about-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 40px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .product-image {
+            flex: 1;
+            margin-right: 40px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info {
+            flex: 2;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .product {
+                flex-direction: column;
+            }
+
+            .product-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .product-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 <header>
-  <nav class="container">
-    <a href="#" aria-label="Acme Inc 首页">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-        <rect x="9" y="9" width="6" height="6"></rect>
-        <line x1="9" y1="1" x2="9" y2="4"></line>
-        <line x1="15" y1="1" x2="15" y2="4"></line>
-        <line x1="9" y1="20" x2="9" y2="23"></line>
-        <line x1="15" y1="20" x2="15" y2="23"></line>
-        <line x1="20" y1="9" x2="23" y2="9"></line>
-        <line x1="20" y1="14" x2="23" y2="14"></line>
-        <line x1="1" y1="9" x2="4" y2="9"></line>
-        <line x1="1" y1="14" x2="4" y2="14"></line>
-      </svg>
-    </a>
-    <ul>
-      <li><a href="#">首页</a></li>
-      <li><a href="#about">关于我们</a></li>
-      <li><a href="#features">服务</a></li>
-      <li><a href="#contact">联系我们</a></li>
-    </ul>
-  </nav>
+    <nav class="container">
+        <a href="#" class="logo">卫风科技</a>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#products">产品</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="container">
-      <h1>欢迎来到卫风科技</h1>
-      <p>我们是行业领先的创新解决方案提供商，致力于为您的业务带来卓越价值。</p>
-      <a href="#about" class="btn">了解更多</a>
-      <a href="#contact" class="btn btn-outline">联系我们</a>
-    </div>
-  </section>
-
-  <section id="features" class="features">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 2rem;">我们的服务</h2>
-      <div class="features-grid">
-        <div class="feature">
-          <h3>创新技术</h3>
-          <p>我们不断推动技术边界，为您提供最前沿的解决方案。无论是人工智能、大数据分析还是物联网技术，我们都能为您量身定制最适合的方案。</p>
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>卫风科技</h1>
+            <p>For growth and care, one step more. —— 更多成长，更加关爱</p>
+            <a href="#about" class="btn">了解更多</a>
+            <a href="#contact" class="btn btn-outline">联系我们</a>
         </div>
-        <div class="feature">
-          <h3>专业团队</h3>
-          <p>我们的专家团队拥有丰富的行业经验，随时为您提供支持。从项目规划到实施，再到后续维护，我们全程陪伴，确保您的业务顺利运转。</p>
-        </div>
-        <div class="feature">
-          <h3>客户至上</h3>
-          <p>我们始终将客户需求放在首位，提供个性化的服务体验。我们深入了解每个客户的独特需求，提供量身定制的解决方案，助力您的业务腾飞。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="about">
-    <div class="container">
-      <h2>关于我们</h2>
-      <p>Acme公司成立于2005年，是一家致力于为各行各业提供创新解决方案的科技公司。我们的使命是通过先进技术和卓越服务，帮助客户实现业务增长和数字化转型。在过去的18年里，我们已经成功为超过500家企业提供了服务，涵盖金融、制造、零售等多个领域。</p>
-      <p>我们的核心价值观是创新、诚信和合作。我们相信，只有不断创新才能在快速变化的市场中保持竞争力；只有保持诚信才能赢得客户的长期信任；只有通过紧密合作，我们才能与客户一同成长，实现共赢。</p>
-    </div>
-  </section>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">我们的理念</h2>
+            <div class="grid grid-cols-2">
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             style="margin-right: 10px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        公司使命
+                    </h3>
+                    <p>
+                        利用科技之力，启迪儿童智慧，陪伴老人，让每个孩子在快乐中成长进步，让每一位老人在温馨中度过美好时光，让每一位家长拥有安心有爱的家庭生活。</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             style="margin-right: 10px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        公司愿景
+                    </h3>
+                    <p>
+                        成为儿童智能教育和老年智能陪伴的引领者；让孩子快乐成长，让老师幸福陪伴；构建智能伙伴社区，共享智慧与关爱；用科技创造美好，智派伴你左右。</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         style="margin-right: 10px;">
+                        <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    公司价值观
+                </h3>
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('external')">对外价值</button>
+                    <button class="tab" onclick="showTab('internal')">对内价值</button>
+                </div>
+                <div id="external" class="tab-content active">
+                    <ul>
+                        <li><strong>品质：</strong>致力于提供高品质的产品和服务，满足客户的需求和期望</li>
+                        <li><strong>关爱：</strong>以温暖和爱心陪伴儿童和老人，提升幸福感</li>
+                        <li><strong>快乐：</strong>强调让用户在使用产品和服务的过程中感受到快乐和满足</li>
+                        <li><strong>责任：</strong>对社会和客户履行企业应有的社会责任</li>
+                    </ul>
+                </div>
+                <div id="internal" class="tab-content">
+                    <ul>
+                        <li><strong>创新：</strong>鼓励员工积极表达想法，不断推动产品和技术的创新</li>
+                        <li><strong>合作：</strong>培养团队的合作精神，共同努力实现公司目标</li>
+                        <li><strong>成长：</strong>倡导持续学习和提升，以适应不断变化的市场和技术环境</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact" class="contact">
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">我们的产品</h2>
+            <div class="product">
+                <div class="product-image">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20241008-105914-NIekG4732q897yQzUpzRVk5SqzvOTG.jpg"
+                         alt="弈子星智能围棋棋盘">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">弈子星智能围棋棋盘</h3>
+                    <p class="product-description">智能、便携、多功能的围棋学习伙伴</p>
+                    <div class="feature-item">
+                        <span class="badge">在线互动</span>
+                        <p>支持在线联网对弈，随时与好友切磋</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="badge">AI 分析</span>
+                        <p>内置强大的 AI 引擎，提供实时棋力分析与指导</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="badge">多种模式</span>
+                        <p>支持 AI 对弈、人人对弈、远程对弈、闯关对弈等多种玩法</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="badge">便携设计</span>
+                        <p>轻量材质，方便携带，随时随地享受围棋乐趣</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h3 class="product-title">弈子星配套 APP</h3>
+                    <p class="product-description">智能围棋学习的得力助手</p>
+                    <div class="feature-item">
+                        <span class="badge">好友约棋</span>
+                        <p>轻松与好友在线对弈，分享棋局乐趣</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="badge">个性化报告</span>
+                        <p>深入分析您的棋力，提供针对性的提升建议</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="badge">AI 复盘</span>
+                        <p>利用先进 AI 技术，全面复盘每一局棋，助您快速进步</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="badge">趣味闯关</span>
+                        <p>丰富多样的围棋题目，寓教于乐，提升棋力</p>
+                    </div>
+                </div>
+                <div class="product-image">
+                    <p>
+                        弈子星 APP 是智能围棋棋盘的完美伴侣，为用户提供全方位的围棋学习和娱乐体验。无论您是围棋初学者还是资深棋手，弈子星
+                        APP 都能满足您的需求。
+                    </p>
+                    <p>
+                        通过 APP，您可以随时查看自己的学习进度，参与在线对弈，获取专业的棋力分析报告，以及享受丰富的围棋教学资源。弈子星
+                        APP 让您的围棋之路更加轻松、有趣且富有成效。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h2 class="section-title">关于我们</h2>
     <div class="container">
-      <h2>联系我们</h2>
-      <p>我们随时欢迎您的咨询，请通过以下方式与我们取得联系。无论您有任何问题或需求，我们的团队都将竭诚为您服务。</p>
-      <form class="contact-form">
-        <input type="email" placeholder="您的邮箱" required>
-        <button type="submit">订阅我们的新闻</button>
-      </form>
-      <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          contact@acme.com
-        </p>
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          +86 123 4567 8901
-        </p>
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          北京市朝阳区
-        </p>
-      </div>
+        <div class="card">
+            <h3 class="card-title">
+                公司使命
+            </h3>
+            <p>
+                “卫风科技”全称 “安徽卫风信息科技有限公司”，是一家人工智能&大模型应用科技公司，位于安徽省合肥市高新区声谷5号楼701。“卫风未来”旨在结合人工智能+大模型技术+5G技术+智能设备，构筑“因家施策，个性陪伴，助力成长”的智慧家庭产品生态。智慧家庭产品生态拟以“家长-孩子-老人”三位一体家庭单元的智慧家庭互联为基础，以“社交互联”作为纽带实现广义“智慧大家庭”互联，推动“智慧社会”发展。</p>
+            <p>“卫风科技”秉承“更多成长，更加关怀”的服务理念，重品牌，讲诚信，志在成为中国儿童智能教育和老年智能陪伴的智能应用引领者。</p>
+        </div>
     </div>
-  </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="您的姓名" required>
+                <input type="email" placeholder="您的邮箱" required>
+                <textarea placeholder="您的留言" rows="5" required></textarea>
+                <button type="submit">发送消息</button>
+            </form>
+        </div>
+    </section>
 </main>
 
 <footer>
-  <div class="container">
-    <p>&copy; 2023 Acme Inc. 保留所有权利。</p>
-    <nav>
-      <a href="#">使用条款</a> | <a href="#">隐私政策</a>
-    </nav>
-  </div>
+    <div class="container">
+        <p>© 2024 卫风科技. 保留所有权利。</p>
+    </div>
 </footer>
+
+<script>
+    function showTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
 </body>
 </html>
